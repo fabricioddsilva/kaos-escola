@@ -20,15 +20,15 @@ public class AlunosController {
         return "listadealuno";
     }
 
-    @PostMapping("/alunos/cadastro")
+    @PostMapping("/cadastro")
     public String cadastrarAlunos(Alunos dados){
         alunosRepo.save(dados);
         return "redirect:/alunos";
     }
 
-    @PutMapping("alunos/atualizar/{id}")
-    public String atualizarAlunos(Long id,Alunos dados, RedirectAttributes redirectAttributes){
-        Optional<Alunos> alunoistrue = alunosRepo.findById(id);
+    @PutMapping("/atualizar")
+    public String atualizarAlunos(Alunos dados, RedirectAttributes redirectAttributes){
+        Optional<Alunos> alunoistrue = alunosRepo.findById(dados.getId());
 
         if(alunoistrue.isPresent()){
             Alunos alunos = alunoistrue.get();
@@ -45,7 +45,7 @@ public class AlunosController {
 
     }
 
-    @DeleteMapping("/alunos/apagar/{id}")
+    @DeleteMapping("{id}")
     public String apagarAlunos(@PathVariable Long id, RedirectAttributes redirectAttributes){
         Optional<Alunos> alunoistrue = alunosRepo.findById(id);
         if(alunoistrue.isPresent()){
