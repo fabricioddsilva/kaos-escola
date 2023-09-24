@@ -5,13 +5,18 @@ import jakarta.persistence.*;
 @Entity
 @Table (name = "tb_admin")
 public class Administradores {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String nome;
 
     private String senha;
+
+    public Administradores(){
+
+    }
 
     public Administradores(long id, String nome, String senha) {
         this.id = id;
