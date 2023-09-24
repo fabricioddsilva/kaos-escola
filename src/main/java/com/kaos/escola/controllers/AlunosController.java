@@ -26,9 +26,9 @@ public class AlunosController {
         return "redirect:/alunos";
     }
 
-    @PutMapping("alunos/atualizar")
-    public String atualizarAlunos(Alunos dados, RedirectAttributes redirectAttributes){
-        Optional<Alunos> alunoistrue = alunosRepo.findById(dados.getId());
+    @PutMapping("alunos/atualizar/{id}")
+    public String atualizarAlunos(Long id,Alunos dados, RedirectAttributes redirectAttributes){
+        Optional<Alunos> alunoistrue = alunosRepo.findById(id);
 
         if(alunoistrue.isPresent()){
             Alunos alunos = alunoistrue.get();
