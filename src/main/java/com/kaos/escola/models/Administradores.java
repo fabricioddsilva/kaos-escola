@@ -1,20 +1,22 @@
 package com.kaos.escola.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table (name = "tb_admin")
 public class Administradores {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String nome;
 
     private String senha;
+
+    public Administradores(){
+
+    }
 
     public Administradores(long id, String nome, String senha) {
         this.id = id;
